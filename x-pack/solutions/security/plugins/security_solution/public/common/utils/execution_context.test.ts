@@ -42,6 +42,24 @@ describe('EA_EXECUTION_CONTEXT_NAMES', () => {
     }
   );
 
+  it('ENTITY_RESOLUTION resolves to the exact expected string', () => {
+    expect(EA_EXECUTION_CONTEXT_NAMES.ENTITY_RESOLUTION).toBe('entity_analytics:entity_resolution');
+  });
+
+  it('ENTITY_STORE_MANAGEMENT resolves to the exact expected string', () => {
+    expect(EA_EXECUTION_CONTEXT_NAMES.ENTITY_STORE_MANAGEMENT).toBe(
+      'entity_analytics:entity_store_management'
+    );
+  });
+
+  it.each([
+    ['EXPLORE_HOSTS_PAGE', 'entity_analytics:explore-hosts_page'],
+    ['EXPLORE_NETWORK_PAGE', 'entity_analytics:explore-network_page'],
+    ['EXPLORE_USERS_PAGE', 'entity_analytics:explore-users_page'],
+  ] as const)('%s resolves to the exact expected string', (key, expected) => {
+    expect(EA_EXECUTION_CONTEXT_NAMES[key]).toBe(expected);
+  });
+
   it('RISK_SCORE_MANAGEMENT resolves to the exact expected string', () => {
     expect(EA_EXECUTION_CONTEXT_NAMES.RISK_SCORE_MANAGEMENT).toBe(
       'entity_analytics:risk_score_management'
